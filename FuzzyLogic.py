@@ -10,17 +10,17 @@ Queda = ctrl.Antecedent(np.arange(0, 101, 1), 'cm/s')
 Comando = ctrl.Antecedent(np.arange(-10, 11, 1), 'Posição')
 ForçaMotores = ctrl.Consequent(np.arange(0, 101, 1), 'RPM')
 
-# Criando as funções de pertinência para a temperatura
+# Criando as funções de pertinência para a altura
 Altura['Baixa'] = fuzz.trapmf(Altura.universe, [0, 0, 3, 40])
 Altura['Media'] = fuzz.trapmf(Altura.universe, [20, 40, 100, 150])
 Altura['Alta'] = fuzz.trapmf(Altura.universe, [100, 150, 200, 200])
 
-# Criando as funções de pertinência para a umidade
+# Criando as funções de pertinência para a velocidade de queda
 Queda['Lenta'] = fuzz.trapmf(Queda.universe, [0, 0, 5, 20])
 Queda['Média'] = fuzz.trapmf(Queda.universe, [5, 20, 33, 50])
 Queda['Rápida'] = fuzz.trapmf(Queda.universe, [33, 50, 100, 100])
 
-# Criando as funções de pertinência para validade
+# Criando as funções de pertinência para o comando vindo do controle
 Comando['Descer'] = fuzz.trapmf(Comando.universe, [-10, -10, -5, 0])
 Comando['Manter'] = fuzz.trimf(Comando.universe, [-5, 0, 5])
 Comando['Subir'] = fuzz.trapmf(Comando.universe, [0, 5, 10, 10])
